@@ -1,0 +1,563 @@
+:root {
+    --bg-color: #000000;
+    --text-color: #ffffff;
+    --text-secondary: #cccccc;
+    --accent-color: #4ade80;
+    --border-color: #222222;
+    --hover-color: #111111;
+}
+
+[data-theme="light"] {
+    --bg-color: #ffffff;
+    --text-color: #000000;
+    --text-secondary: #666666;
+    --accent-color: #22c55e;
+    --border-color: #e5e7eb;
+    --hover-color: #f9fafb;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.5;
+    font-size: 14px;
+    font-weight: 400;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* Main layout */
+.container {
+    max-width: 640px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Header */
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    background: rgba(0, 0, 0, 0.9);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--border-color);
+}
+
+[data-theme="light"] header {
+    background: rgba(255, 255, 255, 0.9);
+}
+
+.header-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 60px;
+    padding: 0 20px;
+}
+
+.logo {
+    position: absolute;
+    top: 12px;
+    left: 20px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.logo img {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+}
+
+/* Theme switcher */
+.theme-switcher {
+    position: absolute;
+    top: 18px;
+    right: 20px;
+    background: var(--hover-color);
+    border: 1px solid var(--border-color);
+    border-radius: 20px;
+    padding: 6px 12px;
+    color: var(--text-color);
+    font-size: 12px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.theme-switcher:hover {
+    background: var(--accent-color);
+    color: black;
+}
+
+.wallet-connect {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    background: var(--hover-color);
+    border-radius: 20px;
+    text-decoration: none;
+    color: var(--text-color);
+    font-size: 14px;
+    transition: background 0.2s ease;
+}
+
+.wallet-connect:hover {
+    background: var(--accent-color);
+    color: black;
+}
+
+.wallet-connect img {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+}
+
+/* Main content */
+main {
+    padding-top: 80px;
+    padding-bottom: 40px;
+}
+
+/* Profile section */
+.profile {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.profile-image {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin: 0 auto 24px;
+    display: block;
+}
+
+h1 {
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 8px;
+    font-family: 'Inter', sans-serif;
+}
+
+.subtitle {
+    color: var(--text-secondary);
+    font-size: 14px;
+    margin-bottom: 16px;
+    font-weight: 400;
+}
+
+.eth-address {
+    color: var(--accent-color);
+    text-decoration: none;
+    font-size: 14px;
+    font-family: ui-monospace, SFMono-Regular, "SF Mono", Consolas, "Liberation Mono", Menlo, monospace;
+}
+
+.eth-address:hover {
+    text-decoration: underline;
+}
+
+/* Section styles */
+section {
+    margin-bottom: 60px;
+}
+
+h2 {
+    font-size: 16px;
+    font-weight: 400;
+    margin-bottom: 16px;
+    letter-spacing: 0.5px;
+    font-family: 'Inter', sans-serif;
+}
+
+h3 {
+    font-size: 16px;
+    font-weight: 400;
+    margin-bottom: 6px;
+    font-family: 'Inter', sans-serif;
+}
+
+p {
+    color: var(--text-secondary);
+    margin-bottom: 14px;
+    font-size: 14px;
+    font-weight: 400;
+}
+
+/* Skills */
+.skills-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.skill-category {
+    padding: 0;
+    background: none;
+    border: none;
+    border-radius: 0;
+    transition: all 0.3s ease;
+}
+
+.skill-category:hover {
+    border: none;
+    transform: translateX(8px);
+}
+
+.skill-category h3 {
+    margin-bottom: 12px;
+    font-size: 14px;
+    font-weight: 400;
+    color: var(--text-secondary);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    position: relative;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.skill-category h3::before {
+    content: '●';
+    color: var(--accent-color);
+    font-size: 12px;
+}
+
+.skill-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 12px;
+}
+
+.skill-tag {
+    display: inline-block;
+    padding: 6px 12px;
+    background: none;
+    border: 1px solid var(--border-color);
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 400;
+    color: var(--text-secondary);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.skill-tag::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: var(--accent-color);
+    transition: left 0.3s ease;
+    z-index: -1;
+}
+
+.skill-tag.featured {
+    background: transparent;
+    color: var(--text-color);
+    font-weight: 500;
+    border-color: var(--accent-color);
+}
+
+.skill-tag:not(.featured):hover {
+    border-color: var(--accent-color);
+    color: var(--accent-color);
+}
+
+.skill-tag:hover::before {
+    left: 0;
+}
+
+/* Work experience */
+.work-item {
+    margin-bottom: 40px;
+}
+
+.work-meta {
+    color: var(--text-secondary);
+    font-size: 12px;
+    margin-bottom: 4px;
+    font-weight: 400;
+}
+
+.work-item h3 {
+    font-size: 14px;
+    font-weight: 400;
+    margin-bottom: 6px;
+    color: var(--text-secondary);
+}
+
+.work-company {
+    color: var(--accent-color);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.work-company:hover {
+    text-decoration: underline;
+}
+
+.tech-stack {
+    color: var(--text-secondary);
+    font-size: 12px;
+    font-style: italic;
+    margin-top: 6px;
+    font-weight: 400;
+}
+
+/* Projects */
+.project-item {
+    margin-bottom: 40px;
+}
+
+.project-item h3 {
+    font-size: 14px;
+    font-weight: 400;
+    margin-bottom: 6px;
+    color: var(--text-secondary);
+}
+
+.project-meta {
+    color: var(--text-secondary);
+    font-size: 12px;
+    margin-bottom: 4px;
+    font-weight: 400;
+}
+
+.project-image {
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+.project-link {
+    color: var(--accent-color);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.project-link:hover {
+    text-decoration: underline;
+}
+
+/* Links */
+.links-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    max-width: 300px;
+}
+
+.link-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: var(--text-color);
+    text-decoration: none;
+    padding: 12px 0;
+    border-bottom: 1px solid var(--border-color);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.link-item:last-child {
+    border-bottom: none;
+}
+
+.link-item::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--accent-color);
+    transition: width 0.3s ease;
+}
+
+.link-item:hover::before {
+    width: 100%;
+}
+
+.link-item:hover {
+    color: var(--accent-color);
+    transform: translateX(8px);
+}
+
+.link-content {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.link-icon {
+    font-size: 18px;
+    min-width: 24px;
+}
+
+.link-details {
+    display: flex;
+    flex-direction: column;
+}
+
+.link-arrow {
+    font-size: 16px;
+    opacity: 0.6;
+    transition: all 0.3s ease;
+}
+
+.link-item:hover .link-arrow {
+    opacity: 1;
+    transform: translateX(4px);
+}
+
+.link-title {
+    font-weight: 600;
+    margin-bottom: 4px;
+    font-size: 14px;
+}
+
+.link-handle {
+    color: var(--text-secondary);
+    font-size: 12px;
+    font-weight: 400;
+}
+
+/* Resume Download */
+.resume-download {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.resume-card {
+    background: none;
+    border: none;
+    border-radius: 0;
+    padding: 0;
+    text-align: left;
+    max-width: 400px;
+    width: 100%;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.resume-card:hover {
+    border: none;
+    transform: translateX(8px);
+}
+
+.resume-icon {
+    font-size: 24px;
+    margin-bottom: 12px;
+    display: inline-block;
+    margin-right: 8px;
+}
+
+.resume-card h3 {
+    font-size: 18px;
+    font-weight: 500;
+    margin-bottom: 8px;
+    color: var(--text-color);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.resume-card p {
+    margin-bottom: 20px;
+    line-height: 1.6;
+    font-size: 14px;
+    max-width: 350px;
+}
+
+.download-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: none;
+    color: var(--accent-color);
+    text-decoration: none;
+    padding: 8px 0;
+    border-radius: 0;
+    font-weight: 500;
+    font-size: 14px;
+    transition: all 0.3s ease;
+    border-bottom: 1px solid var(--accent-color);
+    position: relative;
+    overflow: hidden;
+}
+
+.download-btn::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--accent-color);
+    transition: width 0.3s ease;
+}
+
+.download-btn:hover::before {
+    width: 100%;
+}
+
+.download-btn:hover {
+    background: none;
+    transform: translateX(4px);
+    color: var(--accent-color);
+}
+
+.download-icon {
+    font-size: 14px;
+    transition: transform 0.3s ease;
+}
+
+.download-btn:hover .download-icon {
+    transform: translateY(-2px);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .container {
+        padding: 0 16px;
+    }
+    
+    .header-content {
+        padding: 0 16px;
+    }
+    
+    .logo {
+        left: 16px;
+    }
+    
+    .theme-switcher {
+        right: 16px;
+    }
+    
+    h1 {
+        font-size: 24px;
+    }
+    
+    .skills-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+}
