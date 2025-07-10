@@ -1,18 +1,18 @@
 // Theme toggle functionality
 function toggleTheme() {
     const body = document.body;
-    const themeSwitcher = document.querySelector('.theme-switcher');
+    const themeIcon = document.querySelector('.theme-icon');
     const header = document.querySelector('header');
     
     if (body.hasAttribute('data-theme') && body.getAttribute('data-theme') === 'light') {
         body.removeAttribute('data-theme');
-        themeSwitcher.textContent = '🌙 Dark';
+        themeIcon.textContent = '🌙';
         localStorage.setItem('theme', 'dark');
         // Update header background immediately for dark theme
         updateHeaderBackground('dark');
     } else {
         body.setAttribute('data-theme', 'light');
-        themeSwitcher.textContent = '☀️ Light';
+        themeIcon.textContent = '☀️';
         localStorage.setItem('theme', 'light');
         // Update header background immediately for light theme
         updateHeaderBackground('light');
@@ -26,15 +26,15 @@ function updateHeaderBackground(theme) {
     
     if (scrollTop > 10) {
         if (theme === 'light') {
-            header.style.background = 'rgba(255, 255, 255, 0.9)';
+            header.style.background = 'rgba(254, 254, 254, 0.9)';
         } else {
-            header.style.background = 'rgba(0, 0, 0, 0.9)';
+            header.style.background = 'rgba(15, 23, 42, 0.9)';
         }
     } else {
         if (theme === 'light') {
-            header.style.background = 'rgba(255, 255, 255, 0.8)';
+            header.style.background = 'rgba(254, 254, 254, 0.8)';
         } else {
-            header.style.background = 'rgba(0, 0, 0, 0.8)';
+            header.style.background = 'rgba(15, 23, 42, 0.8)';
         }
     }
     header.style.backdropFilter = 'blur(20px)';
@@ -43,14 +43,14 @@ function updateHeaderBackground(theme) {
 // Initialize theme from localStorage
 document.addEventListener('DOMContentLoaded', function() {
     const savedTheme = localStorage.getItem('theme');
-    const themeSwitcher = document.querySelector('.theme-switcher');
+    const themeIcon = document.querySelector('.theme-icon');
     
     if (savedTheme === 'light') {
         document.body.setAttribute('data-theme', 'light');
-        themeSwitcher.textContent = '☀️ Light';
+        themeIcon.textContent = '☀️';
         updateHeaderBackground('light');
     } else {
-        themeSwitcher.textContent = '🌙 Dark';
+        themeIcon.textContent = '🌙';
         updateHeaderBackground('dark');
     }
 });
