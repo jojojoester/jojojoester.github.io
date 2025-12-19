@@ -2,7 +2,6 @@
 function toggleTheme() {
     const body = document.body;
     const themeIcon = document.querySelector('.theme-icon');
-    const header = document.querySelector('header');
     
     if (body.hasAttribute('data-theme') && body.getAttribute('data-theme') === 'light') {
         body.removeAttribute('data-theme');
